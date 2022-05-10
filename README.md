@@ -1,72 +1,63 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Leaderboard
 
-> Description the project.
+This leaderboard website (work in progress), displays scores submitted by different players. It also allows you to submit your own score. All data is preserved thanks to the external [Leaderboard API](https://www.notion.so/microverse/Leaderboard-API-service-24c0c3c116974ac49488d4eb0267ade3).
 
+---
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML / CSS
+- JavaScript
+- webpack
 
-## Live Demo (if available)
+---
 
-[Live Demo Link](https://livedemo.com)
+## Live Demo
 
+> Not available at the moment.
+
+---
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
+To run a local copy of this project follow these simple steps.
 
 ### Prerequisites
 
-### Setup
+- Any web browser (e.g. Google Chrome)
+- Any Code Editor (e.g. Vscode)
 
-### Install
+### Cloning the repository
 
-### Usage
+- Create a new folder.
+- Open your console in the new folder and run this command: `https://github.com/anagudelogu/leaderboard-api.git`.
+- Open `/dist` folder
+- Open `index.html` file with your code editor, if you're using Vscode, you could also use `Live Server Extension`.
+- You're done!
 
-### Run tests
-
-### Deployment
-
-
+---
 
 ## Authors
 
-👤 **Author1**
+👤 **Andres Agudelo**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@anagudelogu](https://github.com/anagudelogu)
+- Twitter: [@AgudeloAndres\_\_](https://twitter.com/AgudeloAndres__)
+- LinkedIn: [Andres Agudelo Guzman](https://linkedin.com/in/aagst)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+---
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/anagudelogu/leaderboard-api/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
