@@ -1,8 +1,14 @@
-import FetchRequest from './fetchRequest';
+import FetchRequest from './fetchRequest.js';
+import Score from './score.js';
 
 export default class Leaderboard {
 	static async getScores({ url }) {
-		const fetchRequest = new FetchRequest({ url });
-		console.log(fetchRequest);
+		try {
+			const fetchRequest = new FetchRequest({ url });
+			const data = await fetchRequest.call();
+			return data.result;
+		} catch (error) {
+			console.error(error);
+		}
 	}
 }
