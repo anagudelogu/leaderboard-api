@@ -1,8 +1,8 @@
 export default class Score {
-	name;
+	user;
 	score;
-	constructor({ name, score }) {
-		this.name = name;
+	constructor({ user, score }) {
+		this.user = user;
 		this.score = score;
 	}
 }
