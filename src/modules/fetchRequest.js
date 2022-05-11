@@ -6,13 +6,7 @@ export default class FetchRequest {
 	};
 	url;
 
-	constructor(
-		{ method, body, url } = {
-			method: 'GET',
-			body: '',
-			url: '',
-		}
-	) {
+	constructor({ method = 'GET', body, url = '' } = {}) {
 		this.method = method;
 		this.body = body;
 		this.url = url;
