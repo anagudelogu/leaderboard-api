@@ -9,13 +9,13 @@ export default class UserInterface {
 		const gameUrl = await Utility.startGameAndGetUrl();
 		const scores = await Leaderboard.getScores({ url: gameUrl });
 		scores.forEach((score) => {
-			this.createDOM(score);
+			UserInterface.createDOM(score);
 		});
 	}
-	createDOM({ user, score }) {
+	static createDOM({ name, score }) {
 		const LIST_ITEM = document.createElement('li');
 		LIST_ITEM.classList.add('leaderboard__board--listItem');
-		LIST_ITEM.innerHTML = `<p>${user} : ${score}</p>`;
+		LIST_ITEM.innerHTML = `<p>${name} : ${score}</p>`;
 		LIST.appendChild(LIST_ITEM);
 	}
 }
