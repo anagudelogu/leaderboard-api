@@ -3,7 +3,7 @@ import Utility from './modules/utility.js';
 import UserInterface, { LIST } from './modules/userInterface.js';
 
 const refreshBtn = document.querySelector(
-  '.leaderboard__header--btn'
+  '.leaderboard__header--btn',
 );
 const form = document.querySelector('form');
 

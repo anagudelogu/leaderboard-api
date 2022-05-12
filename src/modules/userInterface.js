@@ -2,7 +2,7 @@ import Leaderboard from './leaderboard.js';
 import Utility from './utility.js';
 
 export const LIST = document.querySelector(
-  '.leaderboard__board--list'
+  '.leaderboard__board--list',
 );
 
 export default class UserInterface {
@@ -36,7 +36,7 @@ export default class UserInterface {
 
   static addIconToFirstScore() {
     const firstScore = document.querySelector(
-      '.leaderboard__board--listItem:nth-child(1) p'
+      '.leaderboard__board--listItem:nth-child(1) p',
     );
     if (!firstScore) return;
     const span = document.createElement('span');
