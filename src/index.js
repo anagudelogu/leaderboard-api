@@ -3,13 +3,14 @@ import Utility from './modules/utility.js';
 import UserInterface, { LIST } from './modules/userInterface.js';
 
 const refreshBtn = document.querySelector(
-  '.leaderboard__header--btn',
+  '.leaderboard__header--btn'
 );
 const form = document.querySelector('form');
 
 window.addEventListener('load', async () => {
   try {
     const displayScores = await UserInterface.displayScores();
+    UserInterface.addIconToFirstScore();
     return displayScores;
   } catch (error) {
     throw new Error(error);
