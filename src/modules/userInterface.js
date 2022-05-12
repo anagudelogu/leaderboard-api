@@ -2,7 +2,7 @@ import Leaderboard from './leaderboard.js';
 import Utility from './utility.js';
 
 export const LIST = document.querySelector(
-  '.leaderboard__board--list'
+  '.leaderboard__board--list',
 );
 
 export default class UserInterface {
