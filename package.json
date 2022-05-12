@@ -10,25 +10,27 @@
     "esfix": "eslint . --fix",
     "stylelint": "stylelint \"**/*.{css,scss}\"",
     "stylefix": "stylelint \"**/*.{css,scss}\" --fix",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anagudelogu/webpack-boilerplate.git"
+    "url": "git+https://github.com/anagudelogu/leaderboard-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anagudelogu/webpack-boilerplate/issues"
+    "url": "https://github.com/anagudelogu/leaderboard-api/issues"
   },
-  "homepage": "https://github.com/anagudelogu/webpack-boilerplate#readme",
+  "homepage": "https://anagudelogu.github.io/leaderboard-api/",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.26.0",
+    "gh-pages": "^4.0.0",
     "hint": "^6.1.11",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
