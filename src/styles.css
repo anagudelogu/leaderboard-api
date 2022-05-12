@@ -65,13 +65,13 @@ main {
   margin-bottom: 20px;
 }
 
-.leaderboard__board--listItem{
-  padding: 5px
+.leaderboard__board--listItem {
+  padding: 5px;
 }
+
 .leaderboard__board--list :nth-child(even) {
   background-color: lightgray;
 }
-
 
 .new__title {
   font-size: 1.5rem;
