@@ -26,7 +26,7 @@ export default class UserInterface {
 
   static async sortScores() {
     try {
-      const gameUrl = await Utility.getUrl();
+      const gameUrl = Utility.getUrl();
       const scores = await Leaderboard.getScores({ url: gameUrl });
       return await scores.sort((a, b) => b.score - a.score);
     } catch (error) {
