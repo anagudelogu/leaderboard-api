@@ -2,7 +2,7 @@ import Leaderboard from './leaderboard.js';
 import Utility from './utility.js';
 
 export const LIST = document.querySelector(
-  '.leaderboard__board--list',
+  '.leaderboard__board--list'
 );
 
 export default class UserInterface {
@@ -26,7 +26,7 @@ export default class UserInterface {
 
   static async sortScores() {
     try {
-      const gameUrl = await Utility.getUrl();
+      const gameUrl = Utility.getUrl();
       const scores = await Leaderboard.getScores({ url: gameUrl });
       return await scores.sort((a, b) => b.score - a.score);
     } catch (error) {
