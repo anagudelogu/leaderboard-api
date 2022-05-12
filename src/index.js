@@ -21,6 +21,7 @@ refreshBtn.addEventListener('click', async () => {
   try {
     LIST.innerHTML = '';
     const displayScores = await UserInterface.displayScores();
+    UserInterface.addIconToFirstScore();
     return displayScores;
   } catch (error) {
     throw new Error(error);
