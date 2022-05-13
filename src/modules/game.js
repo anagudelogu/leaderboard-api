@@ -1,7 +1,7 @@
 export default class Game {
   name;
 
-  id = 'kvSJeXtE0f2nSMWvmPG4';
+  id = 'o4CGZi3lejFqekauVqR4';
 
   constructor({ name } = {}) {
     this.name = name;
