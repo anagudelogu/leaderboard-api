@@ -16,12 +16,12 @@ export default class FetchRequest {
   }
 
   async call() {
+    const options = {
+      method: this.method,
+      body: JSON.stringify(this.body),
+      headers: this.headers,
+    };
     try {
-      const options = {
-        method: this.method,
-        body: JSON.stringify(this.body),
-        headers: this.headers,
-      };
       const response = await fetch(this.url, options);
       const data = await response.json();
       return data;
