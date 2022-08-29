@@ -16,7 +16,7 @@ This leaderboard website, displays scores submitted by different players. It als
 
 ## Live Demo
 
-[Live Demo](https://anagudelogu.github.io/leaderboard-api/)
+[Live Demo](https://anagudelogu-leaderboard.netlify.app/)
 
 ---
 
