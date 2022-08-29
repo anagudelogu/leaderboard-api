@@ -110,53 +110,33 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/helpers/fetchRequest.js":
+/*!*************************************!*\
+  !*** ./src/helpers/fetchRequest.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ FetchRequest)\n/* harmony export */ });\nclass FetchRequest {\n  method;\n\n  body;\n\n  headers = {\n    'Content-type': 'application/json; charset=UTF-8',\n  };\n\n  url;\n\n  constructor({ method = 'GET', body, url = '' } = {}) {\n    this.method = method;\n    this.body = body;\n    this.url = url;\n  }\n\n  async call() {\n    const options = {\n      method: this.method,\n      body: JSON.stringify(this.body),\n      headers: this.headers,\n    };\n    try {\n      const response = await fetch(this.url, options);\n      const data = await response.json();\n      return data;\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n}\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/helpers/fetchRequest.js?");
+
+/***/ }),
+
+/***/ "./src/helpers/scoreHelpers.js":
+/*!*************************************!*\
+  !*** ./src/helpers/scoreHelpers.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addIconToFirstScore\": () => (/* binding */ addIconToFirstScore),\n/* harmony export */   \"createScoreCard\": () => (/* binding */ createScoreCard)\n/* harmony export */ });\nconst createScoreCard = ({ user, score }, num, list) => {\n  const listItem = document.createElement('li');\n  listItem.classList.add('leaderboard__board--listItem');\n  listItem.innerHTML = `<span>${num}</span><p>${user}</p><span>${score}</span>`;\n  list.appendChild(listItem);\n};\n\nconst addIconToFirstScore = () => {\n  const firstScore = document.querySelector(\n    '.leaderboard__board--listItem:nth-child(1) p',\n  );\n  if (!firstScore) return;\n  const span = document.createElement('span');\n  span.classList.add('material-icons');\n  span.textContent = 'military_tech';\n  firstScore.appendChild(span);\n};\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/helpers/scoreHelpers.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_utility_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/utility.js */ \"./src/modules/utility.js\");\n/* harmony import */ var _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/userInterface.js */ \"./src/modules/userInterface.js\");\n\n\n\n\nconst refreshBtn = document.querySelector(\n  '.leaderboard__header--btn',\n);\nconst form = document.querySelector('form');\n\nwindow.addEventListener('load', async () => {\n  try {\n    const displayScores = await _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].displayScores();\n    _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].addIconToFirstScore();\n    return displayScores;\n  } catch (error) {\n    throw new Error(error);\n  }\n});\n\nrefreshBtn.addEventListener('click', async () => {\n  try {\n    _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__.LIST.innerHTML = '';\n    const displayScores = await _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].displayScores();\n    _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].addIconToFirstScore();\n    return displayScores;\n  } catch (error) {\n    throw new Error(error);\n  }\n});\n\nform.addEventListener('submit', async (e) => {\n  try {\n    e.preventDefault();\n    const [name, score] = Array.from(form.elements);\n    const createNewScore = await _modules_utility_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].createNewScoreAPI({\n      name: name.value,\n      score: score.value,\n    });\n    name.value = '';\n    score.value = '';\n    return createNewScore;\n  } catch (error) {\n    throw new Error(error);\n  }\n});\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/modules/fetchRequest.js":
-/*!*************************************!*\
-  !*** ./src/modules/fetchRequest.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ FetchRequest)\n/* harmony export */ });\nclass FetchRequest {\n  method;\n\n  body;\n\n  headers = {\n    'Content-type': 'application/json; charset=UTF-8',\n  };\n\n  url;\n\n  constructor({ method = 'GET', body, url = '' } = {}) {\n    this.method = method;\n    this.body = body;\n    this.url = url;\n  }\n\n  async call() {\n    try {\n      const options = {\n        method: this.method,\n        body: JSON.stringify(this.body),\n        headers: this.headers,\n      };\n      const response = await fetch(this.url, options);\n      const data = await response.json();\n      return data;\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n}\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/modules/fetchRequest.js?");
-
-/***/ }),
-
-/***/ "./src/modules/game.js":
-/*!*****************************!*\
-  !*** ./src/modules/game.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Game),\n/* harmony export */   \"gameObj\": () => (/* binding */ gameObj)\n/* harmony export */ });\nclass Game {\n  name;\n\n  id = 'kvSJeXtE0f2nSMWvmPG4';\n\n  constructor({ name } = {}) {\n    this.name = name;\n  }\n}\n\nconst gameObj = new Game({ name: 'AA Game' });\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/modules/game.js?");
-
-/***/ }),
-
-/***/ "./src/modules/leaderboard.js":
-/*!************************************!*\
-  !*** ./src/modules/leaderboard.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Leaderboard)\n/* harmony export */ });\n/* harmony import */ var _fetchRequest_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./fetchRequest.js */ \"./src/modules/fetchRequest.js\");\n\n\nclass Leaderboard {\n  static async getScores({ url }) {\n    try {\n      const fetchRequest = new _fetchRequest_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({ url });\n      const data = await fetchRequest.call();\n      return data.result;\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n\n  static async addScore({ name, score }, url) {\n    try {\n      const fetchRequest = new _fetchRequest_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n        method: 'POST',\n        url,\n        body: {\n          user: name,\n          score,\n        },\n      });\n      const data = await fetchRequest.call();\n      return data;\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n}\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/modules/leaderboard.js?");
-
-/***/ }),
-
-/***/ "./src/modules/score.js":
-/*!******************************!*\
-  !*** ./src/modules/score.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Score)\n/* harmony export */ });\nclass Score {\n  name;\n\n  score;\n\n  constructor({ name, score }) {\n    this.name = name;\n    this.score = score;\n  }\n}\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/modules/score.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _services_leaderboardApi_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services/leaderboardApi.js */ \"./src/services/leaderboardApi.js\");\n/* harmony import */ var _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/userInterface.js */ \"./src/modules/userInterface.js\");\n/* harmony import */ var _helpers_scoreHelpers_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/scoreHelpers.js */ \"./src/helpers/scoreHelpers.js\");\n\n\n\n\n\nconst refreshBtn = document.querySelector(\n  '.leaderboard__header--btn',\n);\nconst form = document.querySelector('form');\n\nwindow.addEventListener('load', async () => {\n  try {\n    await _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].displayScores();\n    (0,_helpers_scoreHelpers_js__WEBPACK_IMPORTED_MODULE_3__.addIconToFirstScore)();\n  } catch (error) {\n    throw new Error(error);\n  }\n});\n\nrefreshBtn.addEventListener('click', async () => {\n  _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__.list.innerHTML = '';\n  try {\n    await _modules_userInterface_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].displayScores();\n    (0,_helpers_scoreHelpers_js__WEBPACK_IMPORTED_MODULE_3__.addIconToFirstScore)();\n  } catch (error) {\n    throw new Error(error);\n  }\n});\n\nform.addEventListener('submit', async (e) => {\n  e.preventDefault();\n  const [name, score] = Array.from(form.elements);\n\n  try {\n    await (0,_services_leaderboardApi_js__WEBPACK_IMPORTED_MODULE_1__.createScore)({\n      user: name.value,\n      score: score.value,\n    });\n\n    name.value = '';\n    score.value = '';\n  } catch (error) {\n    throw new Error(error);\n  }\n});\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/index.js?");
 
 /***/ }),
 
@@ -166,17 +146,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"LIST\": () => (/* binding */ LIST),\n/* harmony export */   \"default\": () => (/* binding */ UserInterface)\n/* harmony export */ });\n/* harmony import */ var _leaderboard_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./leaderboard.js */ \"./src/modules/leaderboard.js\");\n/* harmony import */ var _utility_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utility.js */ \"./src/modules/utility.js\");\n\n\n\nconst LIST = document.querySelector(\n  '.leaderboard__board--list',\n);\n\nclass UserInterface {\n  static async displayScores() {\n    try {\n      const sortedScores = await UserInterface.sortScores();\n      sortedScores.forEach((score, num) => {\n        UserInterface.createDOM(score, num + 1);\n      });\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n\n  static createDOM({ user, score }, num) {\n    const LIST_ITEM = document.createElement('li');\n    LIST_ITEM.classList.add('leaderboard__board--listItem');\n    LIST_ITEM.innerHTML = `<span>${num}</span><p>${user}</p><span>${score}</span>`;\n    LIST.appendChild(LIST_ITEM);\n  }\n\n  static async sortScores() {\n    try {\n      const gameUrl = _utility_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getUrl();\n      const scores = await _leaderboard_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getScores({ url: gameUrl });\n      return await scores.sort((a, b) => b.score - a.score);\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n\n  static addIconToFirstScore() {\n    const firstScore = document.querySelector(\n      '.leaderboard__board--listItem:nth-child(1) p',\n    );\n    if (!firstScore) return;\n    const span = document.createElement('span');\n    span.classList.add('material-icons');\n    span.textContent = 'military_tech';\n    firstScore.appendChild(span);\n  }\n}\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/modules/userInterface.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UserInterface),\n/* harmony export */   \"list\": () => (/* binding */ list)\n/* harmony export */ });\n/* harmony import */ var _services_leaderboardApi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/leaderboardApi.js */ \"./src/services/leaderboardApi.js\");\n/* harmony import */ var _helpers_scoreHelpers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers/scoreHelpers.js */ \"./src/helpers/scoreHelpers.js\");\n\n\n\nconst list = document.querySelector(\n  '.leaderboard__board--list',\n);\n\nclass UserInterface {\n  static async displayScores() {\n    try {\n      const sortedScores = await (0,_services_leaderboardApi_js__WEBPACK_IMPORTED_MODULE_0__.fetchScores)();\n      sortedScores.forEach((score, num) => {\n        (0,_helpers_scoreHelpers_js__WEBPACK_IMPORTED_MODULE_1__.createScoreCard)(score, num + 1, list);\n      });\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n}\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/modules/userInterface.js?");
 
 /***/ }),
 
-/***/ "./src/modules/utility.js":
-/*!********************************!*\
-  !*** ./src/modules/utility.js ***!
-  \********************************/
+/***/ "./src/services/leaderboardApi.js":
+/*!****************************************!*\
+  !*** ./src/services/leaderboardApi.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Utility)\n/* harmony export */ });\n/* harmony import */ var _game_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./game.js */ \"./src/modules/game.js\");\n/* harmony import */ var _score_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./score.js */ \"./src/modules/score.js\");\n/* harmony import */ var _leaderboard_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./leaderboard.js */ \"./src/modules/leaderboard.js\");\n\n\n\n\nclass Utility {\n  static getUrl() {\n    const gameId = _game_js__WEBPACK_IMPORTED_MODULE_0__.gameObj.id;\n    const gameUrl = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/scores`;\n    return gameUrl;\n  }\n\n  static async createNewScoreAPI({ name, score }) {\n    try {\n      const scr = new _score_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({ name, score });\n      const gameUrl = Utility.getUrl();\n      const addScore = await _leaderboard_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].addScore(scr, gameUrl);\n      return addScore;\n    } catch (error) {\n      throw new Error(error);\n    }\n  }\n}\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/modules/utility.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createScore\": () => (/* binding */ createScore),\n/* harmony export */   \"fetchScores\": () => (/* binding */ fetchScores)\n/* harmony export */ });\n/* harmony import */ var _helpers_fetchRequest_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/fetchRequest.js */ \"./src/helpers/fetchRequest.js\");\n\n\nconst gameId = 'Jkc5GQWCTcCN7SI7aC3G';\n\nconst url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameId}/`;\n\nconst endpoint = 'scores';\n\nconst fetchScores = async () => {\n  const fetchRequest = new _helpers_fetchRequest_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({ url: `${url}${endpoint}` });\n  try {\n    const scores = await fetchRequest.call();\n    return scores.result.sort((a, b) => b.score - a.score);\n  } catch (error) {\n    throw new Error(error);\n  }\n};\n\nconst createScore = async ({ user, score }) => {\n  const fetchRequest = new _helpers_fetchRequest_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    method: 'POST',\n    url: `${url}${endpoint}`,\n    body: {\n      user,\n      score,\n    },\n  });\n  try {\n    await fetchRequest.call();\n  } catch (error) {\n    throw new Error(error);\n  }\n};\n\n\n//# sourceURL=webpack://webpack-boilerplate/./src/services/leaderboardApi.js?");
 
 /***/ })
 
